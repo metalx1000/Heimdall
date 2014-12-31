@@ -2,7 +2,7 @@
 
 echo "Installing needed files to compile and Android adb tools"
 sudo apt-get update
-sudo apt-get install build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev qt4-qmake autoconf libtool libusb-1.0-0-dev automake android-tools-adb abootimg
+sudo apt-get install build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev qt4-qmake autoconf libtool libusb-1.0-0-dev automake android-tools-adb abootimg -y
 
 cd ./libpit
 ./autogen.sh
