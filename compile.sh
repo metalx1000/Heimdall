@@ -19,7 +19,7 @@ then
   ./configure
   make
   sudo make install
-
+  cd ../
 else
   read="echo 'continuing'"
 fi
@@ -39,7 +39,6 @@ sudo adb reboot bootloader
 echo "Rebooting Tablet into Bootloader mode"
 
 sleep 10
-cd ../
 echo "Ready to flash clockworkmod."
 echo "Press Enter when ready"
 $read
