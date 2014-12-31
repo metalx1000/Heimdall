@@ -26,6 +26,7 @@ echo "Please connect Tablet and make sure debuging is enabled"
 echo "Press Enter when ready"
 read
 sudo adb reboot bootloader
+echo "Rebooting Tablet into Bootloader mode"
 
 sleep 10
 cd ../
