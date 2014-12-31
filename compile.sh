@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ $1 != "fast" ]
+if [ $1 = "fast" ]
 then 
+  read="echo 'continuing'"
+else
   if [ $1 = "auto" ];then read="echo 'continuing...'";else read="read";fi
   
   echo "Installing needed files to compile and Android adb tools"
@@ -18,8 +20,6 @@ then
   make
   sudo make install
   cd ../
-else
-  read="echo 'continuing'"
 fi
 
 clear
