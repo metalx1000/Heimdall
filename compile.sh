@@ -41,7 +41,17 @@ echo "Rebooting tablet into recovery..."
 sudo adb reboot recovery
 
 sleep 15
+echo "mounting partitions..."
+sudo adb shell "rm /sdcard"
+sudo adb shell "mkdir /sdcard"
+sudo adb shell "parted /dev/block/mmcblk0 print"
+sudo adb shell "mount /dev/block/mmcblk0p23 /system"
+sudo adb shell "mount /dev/block/mmcblk0p24 /cache"
+
+echo """
+To mount user data and sdcard use these commands:
+mount /dev/block/mmcblk1p1 /sdcard
+mount /dev/block/mmcblk0p26 /data
+"""
 echo "Connecting to tablet through adb..."
 sudo adb shell
-
-
