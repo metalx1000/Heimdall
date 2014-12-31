@@ -27,7 +27,7 @@ echo "Press Enter when ready"
 read
 sudo adb reboot bootloader
 
-sleep 5
+sleep 10
 cd ../
 echo "Ready to flash clockworkmod."
 echo "Press Enter when ready"
