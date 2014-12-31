@@ -1,11 +1,9 @@
 #!/bin/bash
 
-if [ $1 = "auto" ];then read="continuing";else read="read";fi
-
 if [ $1 != "fast" ]
 then 
-  read="read"
-
+  if [ $1 = "auto" ];then read="echo 'continuing...'";else read="read";fi
+  
   echo "Installing needed files to compile and Android adb tools"
   sudo apt-get update
   sudo apt-get install build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev qt4-qmake autoconf libtool libusb-1.0-0-dev automake android-tools-adb abootimg -y
