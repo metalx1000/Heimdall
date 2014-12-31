@@ -2,9 +2,9 @@
 
 if [ $1 = "auto" ];then read="";else read="read";fi
 
-if [ $1 = "fast" ]
+if [ $1 != "fast" ]
 then 
-  read=""
+  read="read"
 
   echo "Installing needed files to compile and Android adb tools"
   sudo apt-get update
@@ -21,7 +21,7 @@ then
   sudo make install
 
 else
-  read="read"
+  read=""
 fi
 
 clear
