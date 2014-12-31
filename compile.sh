@@ -38,7 +38,8 @@ echo "tablet rebooting..."
 sleep 20
 echo "Rebooting tablet into recovery..."
 sleep 10
+sudo adb reboot recovery
 echo "Connecting to tablet through adb..."
 sudo adb shell
 
-sudo adb reboot recovery
+
