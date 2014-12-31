@@ -37,8 +37,9 @@ sudo heimdall flash --RECOVERY recovery.img
 echo "tablet rebooting..."
 sleep 20
 echo "Rebooting tablet into recovery..."
-sleep 10
 sudo adb reboot recovery
+
+sleep 10
 echo "Connecting to tablet through adb..."
 sudo adb shell
 
