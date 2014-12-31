@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $1 = "auto" ];then read="";else read="read";fi
+if [ $1 = "auto" ];then read="continuing";else read="read";fi
 
 if [ $1 != "fast" ]
 then 
@@ -21,7 +21,7 @@ then
   sudo make install
 
 else
-  read=""
+  read="echo 'continuing'"
 fi
 
 clear
