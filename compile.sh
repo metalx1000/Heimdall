@@ -1,30 +1,40 @@
 #!/bin/bash
 
-echo "Installing needed files to compile and Android adb tools"
-sudo apt-get update
-sudo apt-get install build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev qt4-qmake autoconf libtool libusb-1.0-0-dev automake android-tools-adb abootimg -y
+if [ $1 = "auto" ];then read="";else read="read";fi
 
-cd ./libpit
-./autogen.sh
-./configure
-make
-cd ../heimdall
-./autogen.sh
-./configure
-make
-sudo make install
+if [ $1 = "fast" ]
+then 
+  read=""
+
+  echo "Installing needed files to compile and Android adb tools"
+  sudo apt-get update
+  sudo apt-get install build-essential pkg-config zlib1g-dev libusb-dev libqt4-dev qt4-qmake autoconf libtool libusb-1.0-0-dev automake android-tools-adb abootimg -y
+  
+  cd ./libpit
+  ./autogen.sh
+  ./configure
+  make
+  cd ../heimdall
+  ./autogen.sh
+  ./configure
+  make
+  sudo make install
+
+else
+  read="read"
+fi
 
 clear
 echo "Ready to start adb."
 echo "Please connect Tablet and make sure debuging is enabled"
 echo "Press Enter when ready"
-read
+$read
 sudo adb shell
 
 echo "Ready to start tablet into bootloader mode."
 echo "Please connect Tablet and make sure debuging is enabled"
 echo "Press Enter when ready"
-read
+$read
 sudo adb reboot bootloader
 echo "Rebooting Tablet into Bootloader mode"
 
@@ -32,7 +42,7 @@ sleep 10
 cd ../
 echo "Ready to flash clockworkmod."
 echo "Press Enter when ready"
-read
+$read
 sudo heimdall flash --RECOVERY recovery.img
 
 echo "tablet rebooting..."
