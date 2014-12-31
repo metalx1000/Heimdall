@@ -14,6 +14,7 @@ cd ../heimdall
 make
 sudo make install
 
+clear
 echo "Ready to start adb."
 echo "Please connect Tablet and make sure debuging is enabled"
 echo "Press Enter when ready"
@@ -34,8 +35,9 @@ sudo heimdall flash --RECOVERY recovery.img
 
 echo "tablet rebooting..."
 sleep 20
-echo "Ready to reboot tablet into recovery."
-echo "Press Enter when ready"
-read
+echo "Rebooting tablet into recovery..."
+sleep 10
+echo "Connecting to tablet through adb..."
+sudo adb shell
 
 sudo adb reboot recovery
